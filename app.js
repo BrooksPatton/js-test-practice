@@ -1,11 +1,8 @@
 const express = require('express');
+const webRoutes = require('./routes/web');
 
 const app = express();
 
-app.get('/', (req, res, next) => {
-	res.sendFile('index.html', {root: __dirname + '/public'}, (err) => {
-		if(err) return next(err);
-	});
-});
+app.use('/', webRoutes);
 
 module.exports = app;
